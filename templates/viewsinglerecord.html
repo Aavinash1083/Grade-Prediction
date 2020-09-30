@@ -6,29 +6,30 @@
     <title>get values</title>
     <style>
         body {
-            background: linear-gradient(to right, #00c9ff, #92fe9d);
+            background-image: linear-gradient( 135deg, #F6CEEC 10%, #D939CD 100%);
         }
     </style  
 </head>  
 <body> 
      <div class="jombotron">
         <div class="container mt-5">
-            <div class="row ">
-                <div class="col-md d-flex justify-content-center">
-                    <h1>
-                    Result is {{records}}
-                    </h1>
-                </div>
-            </div>
+           <div class="col-md d-flex justify-content-center">
+             {% if name  %}
+                <h1>Result for {{ name }} is {{ rows }} </h1>
+             {% endif %}
+             {% if name == none %}
+                <h1>{{ rows }} </h1>
+             {% endif %}
+           </div>
         </div>
+     </div>
     </div>
         <div class="container mt-5">
-            <div class="row ">
-                <div class="col-md d-flex justify-content-center">
-                   <a style="border: 3px solid black; "class="btn btn-primary" href="/">Go Back to Homepage</a>
-                </div>
+            <div class="col-md d-flex justify-content-center">
+               <a style="border: 3px solid black; "class="btn btn-dark" href="/">Go Back to Homepage</a>
             </div>
         </div>
-    </div>          
+   </div>
+</div>          
 </body>  
 </html>   

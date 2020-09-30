@@ -2,7 +2,7 @@ from flask import *
 import sqlite3
 
 app = Flask(__name__)
-DATABASE = 'Student_Score.db'
+DATABASE = 'crud.db'
 
 
 @app.route("/")
@@ -16,15 +16,14 @@ def readSqliteTable():
      con = sqlite3.connect(DATABASE)
      #con.row_factory = sqlite3.Row
      cur = con.cursor()
-     sql = 'SELECT GRADE FROM STUDENT_RESULT WHERE NAME = ?'
+     sql = 'SELECT GRADE FROM student_percent WHERE NAME = ?'
      cur.execute(sql,(name,))
      rows = cur.fetchone()
      print(rows)
-     return render_template("viewsinglerecord.html", rows=rows[0],name=name)
     except:
       rows = 'Not available'
-      return render_template("viewsinglerecord.html", rows=rows, name=name)
     finally:
+      return render_template("viewsinglerecord.html", rows=rows)
       con.close()
 
 if __name__ == "__main__":
